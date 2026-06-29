@@ -1,0 +1,15 @@
+creds.yml
+private_trace.json
+circuit_input.json
+node_modules
+
+build/*
+keys/*
+proof/*
+
+.DS_Store
+vcpkg_installed/
+
+# For the cpp app built
+dist/
+build/

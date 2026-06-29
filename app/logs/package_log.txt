@@ -1,0 +1,2 @@
+[PACKAGE_ARTIFACT] Starting package
+[PACKAGE_ARTIFACT] Raw text: copying binary and metadata

@@ -1,0 +1,5 @@
+[LOAD_DEPS] Starting dependency loading
+[LOAD_DEPS] Reading vcpkg.json
+[LOAD_DEPS] Raw log: resolving fmt, nlohmann-json, openssl, catch2
+[LOAD_DEPS] In real pipeline, vcpkg install happens here
+[LOAD_DEPS] Completed

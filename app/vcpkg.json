@@ -1,0 +1,23 @@
+{
+  "name": "demo-hasher",
+  "version": "0.1.0",
+  "builtin-baseline": "5d35de2ee8b13d0bcec328153605638a74fbbf84",
+  "dependencies": [
+    {
+      "name": "fmt",
+      "version>=": "10.2.1"
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.11.3"
+    },
+    {
+      "name": "openssl",
+      "version>=": "3.2.1"
+    },
+    {
+      "name": "catch2",
+      "version>=": "3.5.2"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+[CONFIGURE_BUILD] Starting CMake configure
+[CONFIGURE_BUILD] Raw text: generating build files
+[CONFIGURE_BUILD] Using CMAKE_BUILD_TYPE=Release
+[CONFIGURE_BUILD] VCPKG_ROOT detected: /Users/I749830/vcpkg
+-- Running vcpkg install
+warning: attempting to set builtin-baseline in vcpkg.json while overriding the default-registry in vcpkg-configuration.json.
+the default-registry from vcpkg-configuration.json will be used.
+Detecting compiler hash for triplet arm64-osx...
+Compiler found: /usr/bin/c++
+The following packages are already installed:
+    catch2:arm64-osx@3.15.1
+    fmt:arm64-osx@12.1.0
+    nlohmann-json:arm64-osx@3.12.0#2
+    openssl:arm64-osx@3.6.3
+  * vcpkg-cmake:arm64-osx@2024-04-23
+  * vcpkg-cmake-config:arm64-osx@2024-05-23
+  * vcpkg-cmake-get-vars:arm64-osx@2025-05-29
+catch2 provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(Catch2 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Catch2::Catch2 Catch2::Catch2WithMain)
+
+catch2 provides pkg-config modules:
+
+  # A modern, C++-native test framework for C++14 and above (links in default main)
+  catch2-with-main
+
+  # A modern, C++-native, test framework for C++14 and above
+  catch2
+
+The package fmt provides CMake targets:
+
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt)
+
+    # Or use the header-only version
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+
+The package nlohmann-json provides CMake targets:
+
+    find_package(nlohmann_json CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+
+The package nlohmann-json can be configured to not provide implicit conversions via a custom triplet file:
+
+    set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+
+For more information, see the docs here:
+    
+    https://json.nlohmann.me/api/macros/json_use_implicit_conversions/
+
+openssl is compatible with built-in CMake targets:
+
+  find_package(OpenSSL REQUIRED)
+  target_link_libraries(main PRIVATE OpenSSL::SSL)
+  target_link_libraries(main PRIVATE OpenSSL::Crypto)
+
+All requested installations completed successfully in: 86.2 us
+-- Running vcpkg install - done
+-- The CXX compiler identification is AppleClang 17.0.0.17000319
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found nlohmann_json: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-CICD/app/vcpkg_installed/arm64-osx/share/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.12.0")
+-- Found OpenSSL: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-CICD/app/vcpkg_installed/arm64-osx/lib/libcrypto.a (found version "3.6.3")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (3.8s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-CICD/app/build

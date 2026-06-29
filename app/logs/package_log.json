@@ -1,0 +1,8 @@
+{
+  "stage": "PACKAGE_ARTIFACT",
+  "status": "success",
+  "exit_code": 0,
+  "timestamp": "2026-06-29T14:16:24Z",
+  "artifact_path": "dist/demo-hasher-linux-x64.tar.gz",
+  "artifact_hash": "383f9fbcc153c17d663295bf07f108451eaeefcef6e120426ddf070b086ec532"
+}

@@ -1,0 +1,14 @@
+[COMPILE_BUILD] Starting compile
+[COMPILE_BUILD] Raw text: compiling C++ files and linking dependencies
+[ 11%] Building CXX object CMakeFiles/demo_hasher_lib.dir/src/hasher.cpp.o
+[ 22%] Building CXX object CMakeFiles/demo_hasher_lib.dir/src/encoder.cpp.o
+[ 33%] Building CXX object CMakeFiles/demo_hasher_lib.dir/src/json_output.cpp.o
+[ 44%] Linking CXX static library libdemo_hasher_lib.a
+[ 44%] Built target demo_hasher_lib
+[ 55%] Building CXX object CMakeFiles/demo-hasher.dir/src/main.cpp.o
+[ 66%] Linking CXX executable demo-hasher
+[ 66%] Built target demo-hasher
+[ 77%] Building CXX object tests/CMakeFiles/demo_hasher_tests.dir/test_hasher.cpp.o
+[ 88%] Building CXX object tests/CMakeFiles/demo_hasher_tests.dir/test_encoder.cpp.o
+[100%] Linking CXX executable demo_hasher_tests
+[100%] Built target demo_hasher_tests

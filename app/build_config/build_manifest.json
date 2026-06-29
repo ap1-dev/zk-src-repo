@@ -1,0 +1,14 @@
+{
+  "app_name": "demo-hasher",
+  "version": "0.1.0",
+  "artifact_name": "demo-hasher-linux-x64.tar.gz",
+  "build_type": "Release",
+  "expected_tests": 3,
+  "stages": [
+    "LOAD_DEPS",
+    "CONFIGURE_BUILD",
+    "COMPILE_BUILD",
+    "TEST",
+    "PACKAGE_ARTIFACT"
+  ]
+}

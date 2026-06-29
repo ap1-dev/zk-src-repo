@@ -1,0 +1,37 @@
+{
+  "build_id": "demo-cpp-build-001",
+  "app": "demo-hasher",
+  "version": "0.1.0",
+  "stages": {
+    "load_deps": {
+      "status": "success",
+      "exit_code": 0
+    },
+    "configure_build": {
+      "status": "success",
+      "exit_code": 0
+    },
+    "compile_build": {
+      "status": "success",
+      "exit_code": 0
+    },
+    "test": {
+      "status": "success",
+      "exit_code": 0,
+      "tests_passed": 3,
+      "tests_failed": 0
+    },
+    "package_artifact": {
+      "status": "success",
+      "exit_code": 0
+    }
+  },
+  "dependency_measurement": {
+    "used_deps_file": "dist/used_deps.json",
+    "used_deps_root": "a146604f11cf8b3c2b60e4d518c0e949bad545f41a31584a603036097357ca5b"
+  },
+  "artifact": {
+    "path": "dist/demo-hasher-linux-x64.tar.gz",
+    "artifact_hash": "383f9fbcc153c17d663295bf07f108451eaeefcef6e120426ddf070b086ec532"
+  }
+}

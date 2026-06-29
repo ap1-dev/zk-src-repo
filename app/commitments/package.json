@@ -1,0 +1,12 @@
+{
+  "name": "app-commitments",
+  "version": "0.1.0",
+  "description": "Commitment computation scripts for the app (source root, artifact, etc.)",
+  "private": true,
+  "scripts": {
+    "register-source": "node scripts/register_declared_source.js"
+  },
+  "dependencies": {
+    "circomlibjs": "^0.1.7"
+  }
+}

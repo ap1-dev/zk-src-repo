@@ -1,0 +1,20 @@
+{
+  "approved_dependencies": [
+    {
+      "name": "fmt",
+      "version": "10.2.1"
+    },
+    {
+      "name": "nlohmann-json",
+      "version": "3.11.3"
+    },
+    {
+      "name": "openssl",
+      "version": "3.2.1"
+    },
+    {
+      "name": "catch2",
+      "version": "3.5.2"
+    }
+  ]
+}
