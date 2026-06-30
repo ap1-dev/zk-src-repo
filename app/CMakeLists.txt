@@ -5,6 +5,19 @@ project(demo_hasher VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Reproducible build flags — remap embedded source/build paths and suppress
+# linker-injected build IDs so the binary is bit-for-bit identical across
+# checkout locations. SOURCE_DATE_EPOCH=0 is set by the build scripts.
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  add_compile_options(
+    -ffile-prefix-map=${CMAKE_SOURCE_DIR}=.
+    -ffile-prefix-map=${CMAKE_BINARY_DIR}=.
+  )
+  if(UNIX AND NOT APPLE)
+    add_link_options(-Wl,--build-id=none)
+  endif()
+endif()
+
 find_package(fmt CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)

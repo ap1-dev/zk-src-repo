@@ -57,7 +57,7 @@ openssl is compatible with built-in CMake targets:
   target_link_libraries(main PRIVATE OpenSSL::SSL)
   target_link_libraries(main PRIVATE OpenSSL::Crypto)
 
-All requested installations completed successfully in: 86.2 us
+All requested installations completed successfully in: 121 us
 -- Running vcpkg install - done
 -- The CXX compiler identification is AppleClang 17.0.0.17000319
 -- Detecting CXX compiler ABI info
@@ -65,11 +65,11 @@ All requested installations completed successfully in: 86.2 us
 -- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Found nlohmann_json: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-CICD/app/vcpkg_installed/arm64-osx/share/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.12.0")
--- Found OpenSSL: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-CICD/app/vcpkg_installed/arm64-osx/lib/libcrypto.a (found version "3.6.3")
+-- Found nlohmann_json: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-src-repo/app/vcpkg_installed/arm64-osx/share/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.12.0")
+-- Found OpenSSL: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-src-repo/app/vcpkg_installed/arm64-osx/lib/libcrypto.a (found version "3.6.3")
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
 -- Found Threads: TRUE
--- Configuring done (3.8s)
+-- Configuring done (3.5s)
 -- Generating done (0.1s)
--- Build files have been written to: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-CICD/app/build
+-- Build files have been written to: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-src-repo/app/build

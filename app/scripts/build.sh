@@ -15,6 +15,8 @@ BUILD_JSON_LOG="${LOG_DIR}/build_log.json"
 
 rm -rf "${BUILD_DIR}"
 
+export SOURCE_DATE_EPOCH=0
+
 CMAKE_ARGS=(
   -S "${APP_ROOT}"
   -B "${BUILD_DIR}"
