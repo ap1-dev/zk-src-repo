@@ -32,6 +32,6 @@
   },
   "artifact": {
     "path": "dist/demo-hasher-linux-x64.tar.gz",
-    "artifact_hash": "47128d611c5d748d8f139b0b260508f7864a8309b2a8d3525e276c50f64bc7da"
+    "artifact_hash": "95d7d63b6b695859aac1a821b9c724d78761d2815b919e1a656fd3df9147f43a"
   }
 }

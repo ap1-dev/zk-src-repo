@@ -43,13 +43,18 @@ function poseidonHash(poseidon, inputs) {
   return poseidon.F.toObject(poseidon(inputs));
 }
 
-function buildMerkleTree(poseidon, leaves, depth) {
-  const leafCount = 2 ** depth;
+// Fixed depth-3 tree over exactly 8 leaves — matches UsedDepsRoot8() in used_deps_root.circom
+// and computeUsedDepsRoot() in tee_build.js.
+const TREE_DEPTH = 3;
+const MAX_DEPS   = 8; // 2 ** TREE_DEPTH
+
+function buildMerkleTree(poseidon, leaves) {
   const padded = [...leaves];
-  while (padded.length < leafCount) padded.push(0n);
+  while (padded.length < MAX_DEPS) padded.push(0n);
+  if (padded.length > MAX_DEPS) throw new Error(`Too many deps: max is ${MAX_DEPS}`);
 
   const levels = [padded];
-  for (let d = 0; d < depth; d++) {
+  for (let d = 0; d < TREE_DEPTH; d++) {
     const prev = levels[d];
     const next = [];
     for (let i = 0; i < prev.length; i += 2) {
@@ -58,14 +63,14 @@ function buildMerkleTree(poseidon, leaves, depth) {
     levels.push(next);
   }
 
-  return { root: levels[depth][0], levels };
+  return { root: levels[TREE_DEPTH][0], levels };
 }
 
-function getMerklePath(tree, leafIndex, depth) {
+function getMerklePath(tree, leafIndex) {
   const pathElements = [];
   const pathIndices = [];
   let index = leafIndex;
-  for (let d = 0; d < depth; d++) {
+  for (let d = 0; d < TREE_DEPTH; d++) {
     pathElements.push(tree.levels[d][index ^ 1].toString());
     pathIndices.push(index % 2);
     index = Math.floor(index / 2);
@@ -94,8 +99,11 @@ async function main() {
     poseidonHash(poseidon, [encodeToField(dep.name), encodeToField(dep.version)])
   );
 
-  const depth = Math.ceil(Math.log2(Math.max(sorted.length, 2)));
-  const tree = buildMerkleTree(poseidon, leaves, depth);
+  if (sorted.length > MAX_DEPS) {
+    console.error(`Too many approved deps: ${sorted.length} > MAX_DEPS (${MAX_DEPS})`);
+    process.exit(1);
+  }
+  const tree = buildMerkleTree(poseidon, leaves);
 
   const approved_deps_root = tree.root.toString();
   const r1 = randomFieldElement();
@@ -107,7 +115,7 @@ async function main() {
     const key = `${sorted[i].name}@${sorted[i].version}`;
     paths[key] = {
       leaf: leaves[i].toString(),
-      ...getMerklePath(tree, i, depth),
+      ...getMerklePath(tree, i),
     };
   }
 
@@ -115,7 +123,7 @@ async function main() {
     approved_deps_root,
     r1: r1.toString(),
     approved_deps_commitment,
-    tree_depth: depth,
+    tree_depth: TREE_DEPTH,
     paths,
   };
 
@@ -125,7 +133,7 @@ async function main() {
   console.log("approved_deps_root=" + approved_deps_root);
   console.log("r1=" + r1.toString());
   console.log("approved_deps_commitment=" + approved_deps_commitment);
-  console.log("tree_depth=" + depth);
+  console.log("tree_depth=" + TREE_DEPTH);
   console.log("Written to " + outputPath);
 }
 

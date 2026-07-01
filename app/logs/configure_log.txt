@@ -1,20 +1,21 @@
 [CONFIGURE_BUILD] Starting CMake configure
 [CONFIGURE_BUILD] Raw text: generating build files
 [CONFIGURE_BUILD] Using CMAKE_BUILD_TYPE=Release
-[CONFIGURE_BUILD] VCPKG_ROOT detected: /Users/I749830/vcpkg
+[CONFIGURE_BUILD] VCPKG_ROOT detected: /opt/vcpkg
 -- Running vcpkg install
 warning: attempting to set builtin-baseline in vcpkg.json while overriding the default-registry in vcpkg-configuration.json.
 the default-registry from vcpkg-configuration.json will be used.
-Detecting compiler hash for triplet arm64-osx...
+Fetching registry information from https://github.com/microsoft/vcpkg (HEAD)...
+Detecting compiler hash for triplet arm64-linux...
 Compiler found: /usr/bin/c++
 The following packages are already installed:
-    catch2:arm64-osx@3.15.1
-    fmt:arm64-osx@12.1.0
-    nlohmann-json:arm64-osx@3.12.0#2
-    openssl:arm64-osx@3.6.3
-  * vcpkg-cmake:arm64-osx@2024-04-23
-  * vcpkg-cmake-config:arm64-osx@2024-05-23
-  * vcpkg-cmake-get-vars:arm64-osx@2025-05-29
+    catch2:arm64-linux@3.15.1
+    fmt:arm64-linux@12.1.0
+    nlohmann-json:arm64-linux@3.12.0#2
+    openssl:arm64-linux@3.6.3
+  * vcpkg-cmake:arm64-linux@2024-04-23
+  * vcpkg-cmake-config:arm64-linux@2024-05-23
+  * vcpkg-cmake-get-vars:arm64-linux@2025-05-29
 catch2 provides CMake targets:
 
   # this is heuristically generated, and may not be correct
@@ -57,19 +58,19 @@ openssl is compatible with built-in CMake targets:
   target_link_libraries(main PRIVATE OpenSSL::SSL)
   target_link_libraries(main PRIVATE OpenSSL::Crypto)
 
-All requested installations completed successfully in: 121 us
+All requested installations completed successfully in: 319 us
 -- Running vcpkg install - done
--- The CXX compiler identification is AppleClang 17.0.0.17000319
+-- The CXX compiler identification is GNU 12.2.0
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
 -- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Found nlohmann_json: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-src-repo/app/vcpkg_installed/arm64-osx/share/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.12.0")
--- Found OpenSSL: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-src-repo/app/vcpkg_installed/arm64-osx/lib/libcrypto.a (found version "3.6.3")
+-- Found nlohmann_json: /repo/app/vcpkg_installed/arm64-linux/share/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.12.0") 
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
--- Found Threads: TRUE
--- Configuring done (3.5s)
--- Generating done (0.1s)
--- Build files have been written to: /Users/I749830/Documents/zk-POCs/zk-CICDv3/zk-src-repo/app/build
+-- Found Threads: TRUE  
+-- Found OpenSSL: /repo/app/vcpkg_installed/arm64-linux/lib/libcrypto.a (found version "3.6.3")  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /repo/app/build
