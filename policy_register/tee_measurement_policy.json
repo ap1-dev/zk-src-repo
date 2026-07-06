@@ -1,0 +1,17 @@
+{
+  "policy_version": "v1",
+  "policy_type": "tee_measurement_allowlist",
+  "hash_algorithm": "sha256",
+  "measurements": [
+    {
+      "name": "Dockerfile.tee",
+      "measurement_hash": "sha256:bca64153c63d6547f333fe5147e1843f1eccf155ae069a3487aade436b5ae03a",
+      "description": "TEE runner image with vcpkg, cmake, OpenSSL, Catch2, fmt, nlohmann-json"
+    },
+    {
+      "name": "Dockerfile.zk",
+      "measurement_hash": "sha256:7bc998d5e211e0f96f2fb2981d0bd1c9530dd479b9e2d4171f2ba895b75db7c4",
+      "description": "ZK runner image with Rust, circom 2.2.3, snarkjs 0.7.6"
+    }
+  ]
+}
