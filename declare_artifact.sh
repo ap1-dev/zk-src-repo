@@ -11,6 +11,8 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+BUILD_START=$(date +%s)
+
 docker run --rm \
   -v "${REPO_DIR}:/repo" \
   -e VCPKG_ROOT=/opt/vcpkg \
@@ -18,5 +20,9 @@ docker run --rm \
   localhost:5000/tee-image-docker:latest \
   bash /repo/app/scripts/vanilla_build.sh
 
+BUILD_END=$(date +%s)
+BUILD_ELAPSED=$(( BUILD_END - BUILD_START ))
+
 echo ""
+echo "[declare_artifact] Vanilla build time: ${BUILD_ELAPSED}s"
 echo "[declare_artifact] Done. Commit policy_register/declared_artifact.json."
