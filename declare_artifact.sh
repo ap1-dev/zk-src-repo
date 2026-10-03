@@ -24,5 +24,5 @@ BUILD_END=$(date +%s)
 BUILD_ELAPSED=$(( BUILD_END - BUILD_START ))
 
 echo ""
-echo "[declare_artifact] Vanilla build time: ${BUILD_ELAPSED}s"
+echo "[declare_artifact] Total time (incl. Docker startup): ${BUILD_ELAPSED}s"
 echo "[declare_artifact] Done. Commit policy_register/declared_artifact.json."

@@ -30,6 +30,19 @@ if [[ -n "${VCPKG_ROOT:-}" ]]; then
     "-DVCPKG_INSTALLED_DIR=${APP_ROOT}/vcpkg_installed"
   )
   echo "[CONFIGURE_BUILD] VCPKG_ROOT detected: ${VCPKG_ROOT}" | tee -a "${CONFIGURE_RAW_LOG}"
+
+  # Time the vcpkg registry fetch (network I/O) separately so vanilla_build.sh
+  # can subtract it from the total and report a network-free build time.
+  echo "[CONFIGURE_BUILD] Fetching vcpkg registry (timed separately) ..." | tee -a "${CONFIGURE_RAW_LOG}"
+  VCPKG_FETCH_START=$(date +%s)
+  "${VCPKG_ROOT}/vcpkg" install \
+    --x-manifest-root="${APP_ROOT}" \
+    --x-install-root="${APP_ROOT}/vcpkg_installed" \
+    2>&1 | tee -a "${CONFIGURE_RAW_LOG}"
+  VCPKG_FETCH_END=$(date +%s)
+  VCPKG_FETCH_ELAPSED=$(( VCPKG_FETCH_END - VCPKG_FETCH_START ))
+  echo "${VCPKG_FETCH_ELAPSED}" > "${LOG_DIR}/vcpkg_fetch_time.txt"
+  echo "[CONFIGURE_BUILD] vcpkg fetch time: ${VCPKG_FETCH_ELAPSED}s" | tee -a "${CONFIGURE_RAW_LOG}"
 else
   echo "[CONFIGURE_BUILD] VCPKG_ROOT not set; expecting system packages or preconfigured toolchain" | tee -a "${CONFIGURE_RAW_LOG}"
 fi
